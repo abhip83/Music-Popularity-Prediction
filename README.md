@@ -1,70 +1,61 @@
 # Music-Popularity-Prediction
 This project implements a machine learning–based approach to predict music popularity using audio and metadata features.
 
-Description
+# 🎵 Music Popularity Prediction
 
-This project predicts the popularity of music tracks using machine learning techniques. Audio and metadata features are analyzed to train a regression model capable of estimating a song’s popularity score.
+This project analyzes Spotify music data to determine which audio features contribute most to a track's popularity.
+It implements a Machine Learning pipeline using a **Random Forest Regressor** 
+to predict popularity scores based on features like energy, danceability, and loudness.
 
-The project demonstrates a complete data science pipeline, including data preprocessing, exploratory data analysis, model training, hyperparameter tuning, and evaluation.
+## 📌 Project Overview
+The goal of this project is to understand the drivers of music popularity and build a predictive model.
+By analyzing acoustic characteristics, we can identify patterns that make a song successful on streaming platforms.
 
-Files Included
+## 📂 Dataset
+The project uses a dataset (`Spotify_data.csv`) containing various audio features for tracks.
+* **Target Variable**: `Popularity` (Numeric score)
+* **Key Features**:
+  * `Energy`, `Valence`, `Danceability`
+  * `Loudness`, `Acousticness`, `Tempo`
+  * `Speechiness`, `Liveness`
 
-Music_Popularity_Prediction_.ipynb – Jupyter Notebook containing the full implementation
+## ⚙️ Methodology
 
-README.md – Project documentation
+1.  **Data Cleaning**: Removal of unnecessary columns (e.g., `Unnamed: 0`) to prepare the dataset.
+2.  **Exploratory Data Analysis (EDA)**:
+    * **Correlation Analysis**: Identified that `Loudness` and `Danceability` have a moderate positive correlation with popularity, while `Acousticness` shows a negative correlation.
+    * **Visualizations**: Uses scatter plots and histograms to visualize feature distributions and relationships.
+3.  **Preprocessing**:
+    * Data splitting into training and testing sets.
+    * Feature scaling using `StandardScaler` to normalize the data.
+4.  **Model Training**:
+    * **Algorithm**: Random Forest Regressor.
+    * **Hyperparameter Tuning**: Utilizes `GridSearchCV` to optimize parameters like `n_estimators`, `max_depth`, and `min_samples_split`.
 
-Tools and Libraries
+## 📊 Results
+* The Random Forest model was selected for its superior performance compared to other baseline algorithms.
+* **Evaluation**: The model's predictions were visualized against actual popularity scores, showing a strong clustering around the "perfect prediction" line, indicating high accuracy.
 
-Python
+## 🛠️ Installation & Usage
 
-Pandas
+### Prerequisites
+* Python 3.x
+* Jupyter Notebook
 
-NumPy
+Running the Project
+Clone this repository.
 
-Matplotlib
-
-Seaborn
-
-Scikit-learn
-
-Machine Learning Approach
-
-Problem Type: Regression
-
-Model Used: Random Forest Regressor
-
-Target Variable: Music Popularity
-
-Key Steps
-
-Data cleaning and preprocessing
-
-Feature scaling using StandardScaler
-
-Train-test split
-
-Hyperparameter tuning using GridSearchCV
-
-Model evaluation using Mean Squared Error (MSE) and R² Score
-
-How to Run
-
+Ensure Spotify_data.csv is in the project directory.
 Open the notebook:
 
 jupyter notebook Music_Popularity_Prediction_.ipynb
+Run all cells to execute the analysis and training pipeline.
+### Required Libraries
+Install the necessary Python packages:
+```bash
 
-Run all cells sequentially.
-
-Results
-
-The trained model provides an effective prediction of music popularity based on input features.
-Evaluation metrics and visualizations are included in the notebook for performance analysis.
-
-Future Scope
-
-Improve feature engineering
-
-Deploy the model as a web application
-
+pip install pandas numpy matplotlib seaborn scikit-learn
 Author
 Abhijeet Patange
+
+
